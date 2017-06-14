@@ -29,7 +29,7 @@
     "ghauth": "^3.2.1",
     "github": "^9.2.0",
     "loggy": "^1.0.2",
-    "opn": "^5.0.0",
+    "opn": "^5.1.0",
     "uglify-js-brunch": "^2.10.0"
   },
   "devDependencies": {
