@@ -220,6 +220,7 @@ function create () {
       templatePath = template.url;
     }
   }
+  template = template || getTemplateByAliasOrUrl('default');
   templatePath = templatePath || templateNameDefault;
 
   const templateSourceDir = path.join(__dirname, 'templates', templatePath);
