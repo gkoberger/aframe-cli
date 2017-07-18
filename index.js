@@ -23,9 +23,11 @@ const commands = require('./commands/index.js');
 const pkgJson = require('./package.json');
 const utils = require('./lib/utils.js');
 
+const createOrReadPackage = utils.createOrReadPackage;
 const getArgvPaths = utils.getArgvPaths;
 const getBrunchConfigPath = utils.getBrunchConfigPath;
 const getTemplateByAliasOrUrl = utils.getTemplateByAliasOrUrl;
+const initPackageFromTemplate = utils.initPackageFromTemplate;
 const mergePackage = utils.mergePackage;
 const pkgDefault = utils.pkgDefault;
 const readPackage = utils.readPackage;
@@ -279,6 +281,12 @@ function build (projectDir) {
       return Promise.resolve(pkg.scripts.build);
     }
 
+    return next();
+  }).catch(() => {
+    return next();
+  });
+
+  function next () {
     const brunchBuild = require('brunch').build;
 
     const optionDefinitions = [
@@ -310,7 +318,7 @@ function build (projectDir) {
         logger.log(`Built project "${projectDir}"`);
       }
     });
-  });
+  }
 }
 
 function serve (projectDir) {
@@ -318,7 +326,7 @@ function serve (projectDir) {
 
   process.chdir(projectDir);
 
-  return readPackage(projectDir).then(pkg => {
+  return createOrReadPackage(projectDir).then(pkg => {
     if (pkg.scripts.serve.toLowerCase().trim().indexOf(pkgDefault.scripts.serve) === -1) {
       const spawn = require('child_process').spawn;
 
@@ -332,6 +340,12 @@ function serve (projectDir) {
       return Promise.resolve(pkg.scripts.serve);
     }
 
+    return next();
+  }).catch(() => {
+    return next();
+  });
+
+  function next () {
     const url = require('url');
 
     const brunchWatch = require('brunch').watch;
@@ -436,7 +450,7 @@ function serve (projectDir) {
         reject(err);
       }
     });
-  });
+  }
 }
 
 function deploy (projectDir) {
