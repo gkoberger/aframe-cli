@@ -1,0 +1,45 @@
+.apink {
+  color: #ef2d5e;
+}
+
+.nav [data-template-slug] {
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: .3rem .3rem 0 rgba(0,0,0,.3);
+  height: 10rem;
+  position: relative;
+  transition: .15s box-shadow ease-in-out, .15s left ease-in-out, .15s top ease-in-out;
+  width: 10rem;
+  /*height: 30rem;*/
+  /*width: 30rem;*/
+}
+
+.nav [data-template-slug]:hover {
+  box-shadow: .3rem .3rem 0 rgba(0,0,0,.6);
+  /*top: .3rem;*/
+  /*left: .3rem;*/
+}
+
+.nav [data-template-slug~="default"] {
+  background-image: url(../../assets/img/templates/default.png);
+}
+
+.nav [data-template-slug~="360-tour"] {
+  background-image: url(../../assets/img/templates/360-tour.png);
+}
+
+.nav [data-template-slug~="model"] {
+  background-image: url(../../assets/img/templates/model.png);
+}
+
+.nav [data-template-slug~="primitives"] {
+  background-image: url(../../assets/img/templates/primitives.png);
+}
+
+.nav [data-template-slug~="room"] {
+  background-image: url(../../assets/img/templates/room.png);
+}
+
+.template-label {
+  width: calc(100% - 3rem);
+}
