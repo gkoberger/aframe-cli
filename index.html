@@ -21,8 +21,8 @@
       </nav>
 
       <section id="terminal" class="terminal nl2 h-25 br1 bw3 pa3 b--solid b--near-black bg-near-black mt4-l" data-section="terminal">
-        <div class="line pb1" data-lang="bash"><code class="white"><span class="o-70">npm install </span><span class="fw6 cyan">aframe-cli</span></code></div>
-        <div class="line" data-lang="bash"><code class="white"><span class="o-70"><span class="fw6">aframe</span><span class="o-70"> <span class="magenta">new</span> default</span></code></div>
+        <div id="cli-install-command" class="line pb2" data-lang="bash"><code class="white"><span class="o-70">npm install </span><span class="fw6 cyan">aframe-cli</span></code></div>
+        <div id="cli-template-command" class="line" data-lang="bash"><code class="white"><span class="fw6 cyan">aframe</span> <span class="magenta">new</span> <span class="purple" data-template-slug="default">default</span></code></div>
       </section>
 
       <section id="templates" class="templates" data-section="templates">
@@ -49,5 +49,32 @@
       </section>
       -->
     </main>
+    <script>
+      (function () {
+        var cliInstallCommand;
+        function setCliInstallCommandDim () {
+          setTimeout(function () {
+            cliInstallCommand.classList.add('o-50');
+          }, 1000);
+        }
+        function setCliTemplateCommand () {
+          var templateInHash = window.location.hash.substr(1).replace(/-template$/i, '');
+          var cliTemplateCommand = document.querySelector('#cli-template-command');
+          if (cliTemplateCommand) {
+            cliTemplateCommand.querySelector('[data-template-slug]').textContent = templateInHash;
+          }
+        }
+        window.addEventListener('load', function () {
+          cliInstallCommand = document.querySelector('#cli-install-command');
+          if (cliInstallCommand) {
+            cliInstallCommand.addEventListener('click', function () {
+              setCliInstallCommandDim();
+            });
+          }
+          setCliTemplateCommand();
+        });
+        window.addEventListener('hashchange', setCliTemplateCommand);
+      })();
+    </script>
   </body>
 </html>

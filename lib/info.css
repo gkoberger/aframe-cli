@@ -45,18 +45,37 @@
 }
 
 .cyan {
-  color: cyan;
+  color: rgb(168,247,254);
 }
 
 .magenta {
-  color: magenta;
+  color: rgb(241,172,232);
+}
+
+.purple {
+  color: rgb(226,194,253);
 }
 
 [data-section~="terminal"] {
   font-family: Consolas, Andale Mono, monospace;
 }
 
-[data-section~="terminal"] .line {  
+::-moz-selection {
+  background-color: rgb(168,247,254);
+  color: #fff;
+}
+
+::-webkit-selection {
+  background-color: rgb(168,247,254);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgb(168,247,254);
+  color: #fff;
+}
+
+[data-section~="terminal"] .line {
 }
 
 .line[data-lang]:before {
