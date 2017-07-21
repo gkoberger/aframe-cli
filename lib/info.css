@@ -2,7 +2,7 @@
   color: #ef2d5e;
 }
 
-.nav [data-template-slug] {
+[data-section~="nav"] [data-template-slug] {
   background-repeat: no-repeat;
   background-size: contain;
   box-shadow: .3rem .3rem 0 rgba(0,0,0,.3);
@@ -14,32 +14,54 @@
   /*width: 30rem;*/
 }
 
-.nav [data-template-slug]:hover {
+[data-section~="nav"] [data-template-slug]:hover {
   box-shadow: .3rem .3rem 0 rgba(0,0,0,.6);
   /*top: .3rem;*/
   /*left: .3rem;*/
 }
 
-.nav [data-template-slug~="default"] {
+[data-section~="nav"] [data-template-slug~="default"] {
   background-image: url(../../assets/img/templates/default.png);
 }
 
-.nav [data-template-slug~="360-tour"] {
+[data-section~="nav"] [data-template-slug~="360-tour"] {
   background-image: url(../../assets/img/templates/360-tour.png);
 }
 
-.nav [data-template-slug~="model"] {
+[data-section~="nav"] [data-template-slug~="model"] {
   background-image: url(../../assets/img/templates/model.png);
 }
 
-.nav [data-template-slug~="primitives"] {
+[data-section~="nav"] [data-template-slug~="primitives"] {
   background-image: url(../../assets/img/templates/primitives.png);
 }
 
-.nav [data-template-slug~="room"] {
+[data-section~="nav"] [data-template-slug~="room"] {
   background-image: url(../../assets/img/templates/room.png);
 }
 
 .template-label {
   width: calc(100% - 3rem);
+}
+
+.cyan {
+  color: cyan;
+}
+
+.magenta {
+  color: magenta;
+}
+
+[data-section~="terminal"] {
+  font-family: Consolas, Andale Mono, monospace;
+}
+
+[data-section~="terminal"] .line {  
+}
+
+.line[data-lang]:before {
+  color: rgba(255,255,255,.8);
+  content: "$ ";
+  display: inline;
+  opacity: .4;
 }
