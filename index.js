@@ -415,8 +415,8 @@ function serve (projectDir) {
     const serverPort = options.port;
     const serverUrl = `http${options.https ? 's' : ''}://${serverHost}:${serverPort}/`;
 
-    console.log(options.directory);
-    
+    // console.log(options.directory);
+
     const liveServerParams = {
       root: options.directory,
       port: options.port,
@@ -440,7 +440,9 @@ function serve (projectDir) {
           //   req.url = req.url.replace('/dist/', '/build/');
           // }
 
-          console.log(res);
+          console.log(req.url);
+
+          // console.log(res);
 
           next();
         }
